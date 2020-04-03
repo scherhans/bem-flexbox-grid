@@ -1,0 +1,82 @@
+ /*!
+ * bem-flexbox-grid v1.0.0 (https://github.com/scherhans/bem-flexbox-grid)
+ * Copyright 2020 Sebastian Scherhans <sebastian@scherhans.digital>
+ * Licensed under MIT (https://github.com/scherhans/bem-flexbox-grid/blob/master/LICENSE)
+ */
+
+@import "../node_modules/breakpoint-sass-mixins/breakpoints.scss";
+
+$grid-name: "grid" !default;
+$column-name: "grid__column" !default;
+$columns: 12 !default;
+
+// The inner gutter between the columns that are used for different breakpoints. 
+// The predefined breakpoints refer to the third party breakpoint library.
+$gutters: (
+  small: 1rem,
+  medium: 2rem,
+  large: 3rem,
+  ultra: 4rem,
+) !default;
+
+/* END OF CONFIGURATION */
+
+.#{$grid-name} {
+  display: flex;
+  flex-wrap: wrap;
+
+  @each $breakpoint in map-keys($breakpoints) {
+    &--start {
+      justify-content: flex-start;
+    }
+    &--center {
+      justify-content: center;
+    }
+    &--end {
+      justify-content: flex-end;
+    }
+
+    &--top {
+      align-items: flex-start;
+    }
+    &--middle {
+      align-items: center;
+    }
+    &--bottom {
+      align-items: flex-end;
+    }
+
+    @include breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      @if ($gutter) {
+        margin-left: $gutter / -2;
+        margin-right: $gutter / -2;
+      }
+    }
+  }
+}
+
+.#{$column-name} {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+
+  // Creating sized boxes with breakpoints
+  @each $breakpoint in map-keys($breakpoints) {
+    @include breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+
+      @if ($gutter) {
+        padding-left: $gutter / 2;
+        padding-right: $gutter / 2;
+      }
+
+      @for $column-index from 1 through $columns {
+        &#{if(is-first-breakpoint($breakpoint), "--#{$column-index}", "--#{$column-index}\\?#{$breakpoint}")} {
+          flex-basis: percentage($column-index / $columns);
+          flex-grow: 0;
+        }
+      }
+    }
+  }
+}
