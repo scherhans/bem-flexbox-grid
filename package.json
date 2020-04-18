@@ -1,6 +1,6 @@
 {
   "name": "bem-flexbox-grid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lightweight library for creating a grid layout using CSS flexbox and BEM methodology",
   "main": "src/flexgrid.scss",
   "scripts": {

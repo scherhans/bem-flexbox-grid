@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/scherhans/bem-flexbox-grid/blob/master/LICENSE)
  */
 
-@import "../node_modules/breakpoint-sass-mixins/breakpoints.scss";
+@import "~breakpoint-sass-mixins/breakpoints.scss";
 
 $grid-name: "grid" !default;
 $column-name: "grid__column" !default;
