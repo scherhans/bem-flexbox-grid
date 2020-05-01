@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>BEM Flexbox Grid Test</title>
+    <link rel="stylesheet" type="text/css" href="../dist/flexgrid.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: lightblue;
+    padding: 50px;
+    margin: 0;
+}
+
+.grid__column {
+    margin-bottom: 20px;
+}
+
+.grid__column .inner {
+    background-color: lightyellow;
+    padding: 10px;
+}
+</style>
+
+</head>
+
+<body>
+    <h1>BEM Flexbox Grid Test</h1>
+
+    <h2>Normal grid</h2>
+
+    <div class="grid">
+        <div class="grid__column"><div class="inner">Only one column</div></div>
+    </div>
+
+    <div class="grid">
+        <div class="grid__column"><div class="inner">Column 1</div></div>
+        <div class="grid__column"><div class="inner">Column 2</div></div>
+    </div>
+
+    <h2>Responsive grid</h2>
+    <div class="grid">
+        <div class="grid__column grid__column--3 grid__column--9?medium"><div class="inner">Column 1</div></div>
+        <div class="grid__column grid__column--9 grid__column--3?medium"><div class="inner">Column 2</div></div>
+    </div>    
+</body>
+
+</html>

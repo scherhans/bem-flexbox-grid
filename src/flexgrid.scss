@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/scherhans/bem-flexbox-grid/blob/master/LICENSE)
  */
 
-@import "~breakpoint-sass-mixins/breakpoints.scss";
+@import "node_modules/breakpoint-sass-mixins/breakpoints.scss";
 
 $grid-name: "grid" !default;
 $column-name: "grid__column" !default;
@@ -59,7 +59,7 @@ $gutters: (
 .#{$column-name} {
   flex-grow: 1;
   flex-shrink: 1;
-  width: 100%;
+  flex-basis: 1;
 
   // Creating sized boxes with breakpoints
   @each $breakpoint in map-keys($breakpoints) {
@@ -73,8 +73,8 @@ $gutters: (
 
       @for $column-index from 1 through $columns {
         &#{if(is-first-breakpoint($breakpoint), "--#{$column-index}", "--#{$column-index}\\?#{$breakpoint}")} {
-          flex-basis: percentage($column-index / $columns);
-          flex-grow: 0;
+          max-width: percentage($column-index / $columns);
+          flex-basis: 0;
         }
       }
     }
