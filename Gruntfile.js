@@ -33,8 +33,7 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 implementation: sass,
-                sourceMap: true,
-                outputStyle: "expanded"
+                style: 'expanded'
             },
             dist: {
                 src: 'src/flexgrid.scss',

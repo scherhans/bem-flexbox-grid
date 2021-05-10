@@ -1,10 +1,10 @@
  /*!
- * bem-flexbox-grid v1.0.0 (https://github.com/scherhans/bem-flexbox-grid)
+ * bem-flexbox-grid v1.0.6 (https://github.com/scherhans/bem-flexbox-grid)
  * Copyright 2020 Sebastian Scherhans <sebastian@scherhans.digital>
  * Licensed under MIT (https://github.com/scherhans/bem-flexbox-grid/blob/master/LICENSE)
  */
 
-@import "node_modules/breakpoint-sass-mixins/breakpoints.scss";
+@import "../node_modules/breakpoint-sass-mixins/breakpoints.scss";
 
 $grid-name: "grid" !default;
 $column-name: "grid__column" !default;
