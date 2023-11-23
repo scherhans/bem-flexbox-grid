@@ -1,3 +1,6 @@
+
+# DEPRECATED
+
 # BEM Flexbox Grid
 
 This is a lightweight library for creating a grid layout using CSS flexbox and BEM methodology. 
